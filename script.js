@@ -103,6 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 300);
 
     // Add click tracking for analytics
-    console.log('InstantFunded PRO Website Loaded Successfully');
+    console.log('Capital For Forex Traders Website Loaded Successfully');
     console.log('WhatsApp Channel:', WHATSAPP_CHANNEL);
 });
