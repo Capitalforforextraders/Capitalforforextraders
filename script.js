@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // WhatsApp button functionality
     const whatsappBtn = document.getElementById('whatsapp-btn');
     
-    // REPLACE THIS WITH YOUR ACTUAL WHATSAPP INVITE LINK
-    const WHATSAPP_INVITE = 'https://chat.whatsapp.com/YOUR_ACTUAL_INVITE_LINK';
+    // YOUR WHATSAPP CHANNEL LINK - READY TO USE
+    const WHATSAPP_CHANNEL = 'https://whatsapp.com/channel/0029VbBYoy33LdQTZWgY1t0e';
     
     whatsappBtn.addEventListener('click', function() {
-        window.open(WHATSAPP_INVITE, '_blank');
+        window.open(WHATSAPP_CHANNEL, '_blank');
     });
     
     // CTA buttons functionality
@@ -29,10 +29,27 @@ document.addEventListener('DOMContentLoaded', function() {
     primaryCtaButtons.forEach(button => {
         if (!button.id) {
             button.addEventListener('click', function() {
-                // Replace with your actual application link
-                window.open('https://your-platform.com/application', '_blank');
+                // You can replace this with your actual application link later
+                alert('Get Funded feature coming soon! Join our WhatsApp channel for updates.');
+                // window.open('https://your-platform.com/application', '_blank');
             });
         }
+    });
+
+    // Secondary buttons functionality
+    const secondaryButtons = document.querySelectorAll('.btn.secondary');
+    secondaryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            alert('Join our WhatsApp channel for performance updates and signals!');
+        });
+    });
+
+    // Card button functionality
+    const cardButtons = document.querySelectorAll('.card-btn');
+    cardButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            window.open(WHATSAPP_CHANNEL, '_blank');
+        });
     });
     
     // Navbar background on scroll
@@ -84,4 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
             el.style.transform = 'translateX(0)';
         });
     }, 300);
+
+    // Add click tracking for analytics
+    console.log('InstantFunded PRO Website Loaded Successfully');
+    console.log('WhatsApp Channel:', WHATSAPP_CHANNEL);
 });
