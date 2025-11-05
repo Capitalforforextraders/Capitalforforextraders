@@ -14,35 +14,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Community buttons functionality
-    const discordBtn = document.getElementById('discord-btn');
+    // WhatsApp button functionality
     const whatsappBtn = document.getElementById('whatsapp-btn');
-    const telegramBtn = document.getElementById('telegram-btn');
     
-    // Replace these with your actual links
-    const DISCORD_LINK = 'https://discord.gg/YOUR_INVITE_CODE';
-    const WHATSAPP_LINK = 'https://chat.whatsapp.com/YOUR_INVITE_CODE';
-    const TELEGRAM_LINK = 'https://t.me/YOUR_CHANNEL_NAME';
-    
-    discordBtn.addEventListener('click', function() {
-        window.open(DISCORD_LINK, '_blank');
-    });
+    // REPLACE THIS WITH YOUR ACTUAL WHATSAPP INVITE LINK
+    const WHATSAPP_INVITE = 'https://chat.whatsapp.com/YOUR_ACTUAL_INVITE_LINK';
     
     whatsappBtn.addEventListener('click', function() {
-        window.open(WHATSAPP_LINK, '_blank');
-    });
-    
-    telegramBtn.addEventListener('click', function() {
-        window.open(TELEGRAM_LINK, '_blank');
+        window.open(WHATSAPP_INVITE, '_blank');
     });
     
     // CTA buttons functionality
     const primaryCtaButtons = document.querySelectorAll('.btn.primary');
     primaryCtaButtons.forEach(button => {
-        if (!button.id) { // Only apply to non-community CTA buttons
+        if (!button.id) {
             button.addEventListener('click', function() {
-                // Replace with your actual signup link
-                window.open('https://your-platform.com/signup', '_blank');
+                // Replace with your actual application link
+                window.open('https://your-platform.com/application', '_blank');
             });
         }
     });
@@ -51,9 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+            navbar.style.background = 'rgba(10, 15, 28, 0.98)';
+            navbar.style.backdropFilter = 'blur(20px)';
         } else {
-            navbar.style.background = 'rgba(15, 23, 42, 0.8)';
+            navbar.style.background = 'rgba(10, 15, 28, 0.95)';
+            navbar.style.backdropFilter = 'blur(20px)';
         }
     });
     
@@ -73,10 +63,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Observe elements for animation
-    document.querySelectorAll('.feature-card, .channel-card').forEach(card => {
+    document.querySelectorAll('.feature-card, .signal-card, .premium-card').forEach(card => {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
+    
+    // Add loading animation
+    const loadingElements = document.querySelectorAll('.hero-text, .community-text');
+    loadingElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateX(-30px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    });
+    
+    setTimeout(() => {
+        loadingElements.forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateX(0)';
+        });
+    }, 300);
 });
