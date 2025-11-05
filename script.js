@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // WhatsApp button functionality
     const whatsappBtn = document.getElementById('whatsapp-btn');
     
-    // YOUR WHATSAPP CHANNEL LINK - READY TO USE
+    // YOUR WHATSAPP CHANNEL LINK
     const WHATSAPP_CHANNEL = 'https://whatsapp.com/channel/0029VbBYoy33LdQTZWgY1t0e';
     
     whatsappBtn.addEventListener('click', function() {
@@ -25,15 +25,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // CTA buttons functionality
-    const primaryCtaButtons = document.querySelectorAll('.btn.primary');
+    const primaryCtaButtons = document.querySelectorAll('.btn.primary, .golden-btn');
     primaryCtaButtons.forEach(button => {
         if (!button.id) {
             button.addEventListener('click', function() {
-                // You can replace this with your actual application link later
-                alert('Get Funded feature coming soon! Join our WhatsApp channel for updates.');
-                // window.open('https://your-platform.com/application', '_blank');
+                alert('Join our WhatsApp channel for instant funding access!');
+                window.open(WHATSAPP_CHANNEL, '_blank');
             });
         }
+    });
+
+    // Account buttons functionality
+    const accountButtons = document.querySelectorAll('.account-btn');
+    accountButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            window.open(WHATSAPP_CHANNEL, '_blank');
+        });
     });
 
     // Secondary buttons functionality
@@ -43,23 +50,15 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Join our WhatsApp channel for performance updates and signals!');
         });
     });
-
-    // Card button functionality
-    const cardButtons = document.querySelectorAll('.card-btn');
-    cardButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            window.open(WHATSAPP_CHANNEL, '_blank');
-        });
-    });
     
     // Navbar background on scroll
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(10, 15, 28, 0.98)';
+            navbar.style.background = 'rgba(10, 10, 10, 0.98)';
             navbar.style.backdropFilter = 'blur(20px)';
         } else {
-            navbar.style.background = 'rgba(10, 15, 28, 0.95)';
+            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
             navbar.style.backdropFilter = 'blur(20px)';
         }
     });
@@ -74,15 +73,15 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.style.transform = 'translateY(0) scale(1)';
             }
         });
     }, observerOptions);
     
     // Observe elements for animation
-    document.querySelectorAll('.feature-card, .signal-card, .premium-card').forEach(card => {
+    document.querySelectorAll('.feature-card, .account-card, .golden-card').forEach(card => {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
+        card.style.transform = 'translateY(30px) scale(0.9)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
@@ -91,18 +90,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadingElements = document.querySelectorAll('.hero-text, .community-text');
     loadingElements.forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateX(-30px)';
+        el.style.transform = 'translateX(-30px) scale(0.95)';
         el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
     });
     
     setTimeout(() => {
         loadingElements.forEach(el => {
             el.style.opacity = '1';
-            el.style.transform = 'translateX(0)';
+            el.style.transform = 'translateX(0) scale(1)';
         });
     }, 300);
 
-    // Add click tracking for analytics
+    // Add click tracking
     console.log('Capital For Forex Traders Website Loaded Successfully');
     console.log('WhatsApp Channel:', WHATSAPP_CHANNEL);
 });
